@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding:0;
+      margin:0;
+      list-style: none;
+    }
+
+    .slider {
+      position: relative;
+      width: 500px;
+      height: 300px;
+      border: 1px solid #000;
+      margin: 100px auto 0;
+      overflow: hidden;
+    }
+
+    .slider ul {
+      position: absolute;
+      left: -1000px;
+      top: 0;
+      width: 1500px;
+      height: 300px;
+      transition: all 1s ease;
+    }
+
+    .slider ul li {
+      width: 500px;
+      height: 300px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <a href="#" id="btn1">111</a>
+    <a href="#" id="btn2">222</a>
+    <a href="#" id="btn3">333</a>
+  </div>
+
+  <div class="slider">
+    <ul id="ul1">
+      <li style="background:#fc0"></li>
+      <li style="background:#0fc"></li>
+      <li style="background:#f0c"></li>
+    </ul>
+  </div>
+
+  <script>
+    let btn1 = document.getElementById('btn1');
+    let btn2 = document.getElementById('btn2');
+    let btn3 = document.getElementById('btn3');
+
+    btn1.onclick = function(){
+      setCur(0);
+    };
+
+    btn2.onclick = function(){
+      setCur('-500px');
+    }
+
+    btn3.onclick = function(){
+      setCur('-1000px');
+    }
+
+    function setCur(left){
+      let ul1 = document.getElementById('ul1');
+      ul1.style.left = left;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #myBox {
+      width: 100px;
+      height: 100px;
+      background: aqua;
+    }
+  </style>
+</head>
+<body>
+  <div id="myBox" 
+  onmousemove="toBig()"
+  onmouseout="toSmall()"
+  >
+  </div>
+
+  <script>
+    function toBig(){
+      let box1 = document.getElementById('myBox');
+
+      box1.style.background='red';
+      box1.style.width='200px';
+      box1.style.height='200px';
+    }
+    function toSmall(){
+      let box1 = document.getElementById('myBox');
+
+      box1.style.background='aqua';
+      box1.style.width='100px';
+      box1.style.height='100px';
+    }
+  </script>
+</body>
+</html>

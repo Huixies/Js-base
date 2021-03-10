@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn1">图片一</button>
+  <button id="btn2">图片二</button>
+  <div>
+    <img id="img1">
+   
+  </div>
+  
+  <script>
+    let btn1 = document.getElementById('btn1');
+    let btn2 = document.getElementById('btn2');
+    let img1 = document.getElementById('img1')
+
+    function imgClose(src){
+      return function(){
+        img1.src = src;
+      } 
+    }
+    
+    btn1.onclick = imgClose('054942PgOyl7vWprjwmv4D.png')
+    btn2.onclick = imgClose('055108jRlk3ea69BJV3ttY.png')
+  </script>
+</body>
+</html>

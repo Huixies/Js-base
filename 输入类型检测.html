@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="input1" /> +
+  <input type="text" id="input2" />
+  <button type="button" id="btn1">求和</button>
+
+  <script>
+    let btn1 = document.getElementById('btn1')
+    let input1 = document.getElementById('input1');
+    let input2 = document.getElementById('input2');
+
+    btn1.onclick = function(){
+      let n1 = Number(input1.value);
+      let n2 = Number(input2.value);
+
+      if(isNaN(n1)){
+        alert('第一个输入框数值有误');
+      }else if (isNaN(n2)){
+        alert('第二个输入框数值有误')
+      }else {
+        alert(n1+n2);
+      }
+    }
+   
+  </script>
+</body>
+</html>

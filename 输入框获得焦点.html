@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #myBox {
+      display: none;
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" onfocus="boxOver()" onblur="boxHiden()"/>
+  <div id="myBox"></div>
+
+  <script>
+    function boxOver() {
+      let box1 = document.getElementById('myBox');
+
+      box1.style.display = 'block';
+    }
+
+    function boxHiden() {
+      let box1 = document.getElementById('myBox');
+
+      box1.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
