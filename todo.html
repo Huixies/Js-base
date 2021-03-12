@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="txt1">
+  <button type="button" id="btn1">按钮</button>
+  <ul id="ul1"></ul>
+
+  <script>
+    let oBtn = document.getElementById('btn1');
+    let oTxt = document.getElementById('txt1');
+    let oUl = document.getElementById('ul1');
+
+    oTxt.onkeydown = oBtn.onclick = function(ev){
+      if(ev.keyCode ===13 || ev.button === 0 ){
+        if(oTxt.value){
+          let oLi = document.createElement('li');
+          oLi.innerHTML = oTxt.value;
+          oTxt.value = '';
+
+          if(oUl.children.length>0){
+            oUl.insertBefore(oLi,oUl.children[0]);
+          }else{
+            oUl.appendChild(oLi);
+          }
+        }else{
+          alert('请输入内容后再发送')
+        }
+        
+      }
+       
+        
+      }
+     
+  </script>
+</body>
+</html>

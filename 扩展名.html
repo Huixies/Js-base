@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let str = '123321.img';
+    let n = str.lastIndexOf('.');
+
+    if( n=== -1){
+      let base = str;
+      let ext = '';
+
+      alert('文件名'+base+'后缀名：'+ext);
+    }else{
+      let base = str.substring(0,n);
+      let ext = str.substring(n);
+
+      alert('文件名'+base+'，后缀名：'+ext);
+    }
+  </script>
+</body>
+</html>

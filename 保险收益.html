@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  基金：<input type="text" id="txt1"></br>
+  年份：<input type="text" id="txt2">
+  <button id="btn1">计算利率</button>
+  <script>
+    let txt1 = document.getElementById('txt1');
+    let txt2 = document.getElementById('txt2');
+    let btn1 = document.getElementById('btn1');
+
+    btn1.onclick = function(){
+      let value1 = Number(txt1.value);
+      let value2 = Number(txt2.value);
+
+      if(isNaN(value1)){
+        alert('请输入正确基金数目')
+      }else if(isNaN(value2)){
+        alert('请输入正确年份')
+      }else{
+        let oDate = new Date();
+
+        let total = (oDate.getFullYear()-value2)*0.15+value1
+        alert(total)
+      }
+    }
+
+  </script>
+</body>
+</html>

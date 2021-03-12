@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [];
+
+    function rnd(n,m){
+      return Math.floor(n+Math.random()*(m+1-n));
+    }
+
+    while(arr.length<6){
+      let n = rnd(1,33);
+
+      if(arr.indexOf(n) === -1){
+        arr.push(n);
+      }
+    }
+
+    arr.sort(function (a,b){
+      return a-b;
+    });
+    
+    console.log(arr,rnd(1,16));
+  </script>
+</body>
+</html>
