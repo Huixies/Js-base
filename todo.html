@@ -20,7 +20,14 @@
       if(ev.keyCode ===13 || ev.button === 0 ){
         if(oTxt.value){
           let oLi = document.createElement('li');
-          oLi.innerHTML = oTxt.value;
+          oLi.innerHTML = oTxt.value+'<a href = "javascript:;">删除</a>';
+          let delBtn = oLi.getElementsByTagName('a')[0];
+          delBtn.onclick = function(){
+            if(confirm('是否删除？')){
+              oUl.removeChild(this.parentNode);
+            }
+          }
+
           oTxt.value = '';
 
           if(oUl.children.length>0){
@@ -30,12 +37,9 @@
           }
         }else{
           alert('请输入内容后再发送')
-        }
-        
-      }
-       
-        
-      }
+        }    
+      }    
+    }
      
   </script>
 </body>

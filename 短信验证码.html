@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">发送短信</button>
+  <script>
+    let btn = document.getElementById('btn');
+
+    btn.onclick = function(){
+      this.disabled = true;
+      let timer1 = 10;
+
+      function tick(){
+        if(timer1>0){
+          btn.innerHTML = timer1 + '秒后重发';
+        }else{
+          clearInterval(timer2);
+          btn.innerHTML = '发送短信';
+          btn.disabled = false;
+        }
+
+        timer1 --;
+      }
+
+      let timer2 = setInterval(tick,1000);
+
+      tick();
+      
+    }
+  </script>
+</body>
+</html>

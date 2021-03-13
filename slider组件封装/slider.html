@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="slider.css">
+</head>
+<body>
+  <div class="slider" id="slider1">
+    <ul>
+      <li style="background: #fc0">0</li>
+      <li style="background: #cf0">1</li>
+      <li style="background: #0fc">2</li>
+      <li style="background: #0cf">3</li>
+      <li style="background: #ff0">4</li>
+    </ul>
+    <a href="javascript:;" class="prev">&lt;</a>
+    <a href="javascript:;" class="next">&gt;</a>
+    <ol>
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+  </div>
+  
+  <script src="./slider.js"></script>
+  <script>
+    slider(document.getElementById('slider1'));
+  </script>
+</body>
+</html>

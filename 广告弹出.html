@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #myBox {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 200px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      line-height: 200px;
+      margin-top: -100px;
+      margin-left: -150px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 广告在五秒钟之后出现，五秒后消失 -->
+  <div id="myBox">促销，甩卖</div>
+  
+  <script>
+    let myBox = document.getElementById('myBox');
+    let timer = setInterval(function(){
+      myBox.style.display = 'block';
+
+      setInterval(function(){
+      myBox.style.display = 'none';
+
+      clearInterval(timer)
+    },5000)
+
+    },5000)
+  </script>
+</body>
+</html>

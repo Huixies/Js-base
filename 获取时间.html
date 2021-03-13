@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span id="timer1"></span>
+  <button id="btn">暂停</button>
+
+  <script>
+    let timer1 = document.getElementById('timer1');
+    let btn = document.getElementById('btn')
+
+    function dou(n){
+      return n>10?''+n:'0'+n
+    };
+
+    function tick(){
+      let oDate = new Date();
+
+      timer1.innerHTML = oDate.getFullYear()+'年'+ Number(oDate.getMonth()+1) +'月'+ oDate.getUTCDate()+'日'+dou(oDate.getHours())+':'+dou(oDate.getMinutes())+':'+dou(oDate.getSeconds());
+    }
+
+    let timer2 = setInterval(tick,1000);
+    tick();
+
+    btn.onclick = function(){
+      if(this.innerHTML === '暂停'){
+        clearInterval(timer2);
+        this.innerHTML = '继续'
+      }else{
+        timer2 = setInterval(tick,1000);
+        tick();
+        this.innerHTML = '暂停'
+      }
+      
+    }
+  </script>
+</body>
+</html>
