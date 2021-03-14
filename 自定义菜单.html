@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #list1 {
+      margin-left: 10px;
+    }
+
+    #list1 li:hover{
+      background: #ccc;
+      color: #fff;
+    }
+
+    #menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      border: 1px solid #000;
+      border-bottom: none;
+      background: #fff;
+      display: none;
+    }
+
+    #menu li {
+      width: 200px;
+      height: 40px;
+      line-height: 40px;
+      border-bottom: 1px solid #000;
+      text-align: center;
+    }
+
+    #menu li:hover {
+      color: #fff;
+      background: #000;
+    }
+
+    #menu li.disable {
+      color: #ccc;
+    }
+
+    #menu li.disable:hover {
+      color: #ccc;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <ul id="list1">
+    <li>111111</li>
+    <li>222222</li>
+    <li>333333</li>
+    <li>777777777</li>
+    <li>4654646</li>
+    <li>ggd  gd</li>
+    <li>g d g7686</li>
+    <li>9 g7686</li>
+    <li>997g  686</li>
+    <li>997686</li>
+    <li>9 dg d7686</li>
+    <li>99g 7686</li>
+    <li>997 d 686</li>
+    <li>9 d97686</li>
+    <li>99d gdgd7686</li>
+  </ul>
+
+  <ul id="menu">
+    <li>删除</li>
+    <li id="move-up">上移</li>
+    <li id="move-down">下移</li>
+    <li>插入</li>
+  </ul>
+
+  <script>
+    let oList = document.getElementById('list1');
+    let oMenu = document.getElementById('menu');
+    let oUp = document.getElementById('move-up');
+    let oDown = document.getElementById('move-down');
+    let curItem = null;
+
+    //阻止默认事件
+    oList.oncontextmenu = function(ev){
+      let srcElement = ev.srcElement;
+
+      if(srcElement.tagName === 'LI'){
+        //菜单显示 位置
+        oMenu.style.display = 'block';
+        oMenu.style.left = ev.clientX + 'px';
+        oMenu.style.top = ev.clientY + 'px';
+
+        curItem = srcElement;
+
+        //选项是否启用
+        let n = indexOf(oList.children,srcElement);
+
+        if(n===0) oUp.className = 'move-up disable';
+        else oUp.className = 'move-up';
+
+        if(n===oList.children.length-1) oDown.className = 'move-down disable';
+        else oDown.className = 'move-down';
+
+        return false
+      }
+    }
+
+    //点击页面空白处 菜单消失
+    document.onclick = function(){
+      oMenu.style.display = 'none';
+      curItem = null;
+    }
+
+    //给menu添加事件
+    const btnDel = oMenu.children[0];
+    const btnUp = oMenu.children[1];
+    const btnDown = oMenu.children[2];
+    const btnInsert = oMenu.children[3];
+
+    btnDel.onclick = function (){
+      if(confirm('请问是否确定删除')){
+        oList.removeChild(curItem);
+      }
+    };
+
+    btnInsert.onclick = function(){
+      let str = prompt('请输入新的文字','新建节点');
+
+      if(str){
+        let oLi = document.createElement('li');
+        oLi.innerHTML = str;
+
+        oList.insertBefore(oLi,curItem);
+      }
+    };
+
+    btnUp.onclick = function(){
+      let n = indexOf(oList.children,curItem);
+
+      if(n>0){
+        moveUp(curItem);
+      }
+    };
+
+    btnDown.onclick = function(){
+      let n = indexOf(oList.children,curItem);
+
+      if(n<oList.children.length - 1){
+        moveUp(curItem.nextElementSibling);
+      }
+    };
+
+    function moveUp(cur){
+      oList.insertBefore(cur,cur.previousElementSibling);
+    }
+
+    function indexOf(arr,obj){
+      for(let i=0;i<arr.length;i++){
+        if(arr[i]===obj) return i;
+      }
+
+      return -1;
+    }
+  </script>
+</body>
+</html>

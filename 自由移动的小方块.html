@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+
+  <script>
+    let oBox = document.getElementById('box');
+    const speed = 5; //速度
+    const leftRun = 37 , upRun = 38 , rightRun = 39 , downRun = 40;
+    let left = false;
+    let right = false;
+    let up = false;
+    let down = false;
+
+    document.onkeydown = function(ev){
+      switch (ev.keyCode) {
+        case leftRun:
+          left = true;
+          break;
+        case rightRun:
+          right = true;
+          break;
+        case upRun:
+          up = true;
+          break;
+        case  downRun:
+          down = true;
+          break; 
+        default:
+          break;
+      }
+    }
+
+    document.onkeyup = function(ev){
+      switch (ev.keyCode) {
+        case leftRun:
+          left = false;
+          break;
+        case rightRun:
+          right = false;
+          break;
+        case upRun:
+          up = false;
+          break;
+        case  downRun:
+          down = false;
+          break; 
+        default:
+          break;
+      }
+    }
+
+    setInterval(function(){
+      if(left)  oBox.style.left = oBox.offsetLeft - speed +'px';
+      if(right) oBox.style.left = oBox.offsetLeft + speed+'px';
+      if(up)  oBox.style.top = oBox.offsetTop - speed +'px';
+      if(down) oBox.style.top = oBox.offsetTop + speed +'px';
+    },30)
+
+  </script>
+</body>
+</html>
